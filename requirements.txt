@@ -1,0 +1,6 @@
+clrprint==2.0.1
+ConfigArgParse==1.7.1
+matplotlib==3.7.3
+numpy==2.3.4
+psutil==5.9.1
+scikit_learn==1.4.2

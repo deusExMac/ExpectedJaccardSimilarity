@@ -1,18 +1,21 @@
 # About
 
-Attempts to solve (and verify) empirically Exercise 3.1.3 (page 86) found in [1] which states:
+Attempts to solve (and verify) empirically Exercise 3.1.3 page 86 found in [1] which states:
 
 _"Suppose we have a universal set U of n elements, and we choose two subsets S and T at random, each with m of the n elements. What is the expected value of the Jaccard similarity of S and T ?"_
 
 It does this by sampling from the universal set and calculating the Jaccard similarities a number of times and averaging the calculated similarities. This average is considered a solution to the exercise since it converges to the expected value. It also attempts to verify that the average converges to the exact expected value which is calculated by the formula:
 
+$$E\left(\\text{Jaccard similarity}\right) = \sum_{k=0}^{m} \left(k\over 2m-k\right) \frac{{C}^n_k {C}^{n-k}_{m-k} {C}^{n-m}_{m-k}} {{C}^n_{m}{C}^n_{m}} \ \ \ \ \ \ \ [1]$$ 
+
+where $$n$$ the number of distinct elements in the Universal set, $$m$$ the number of  elements in sets S and T, and $${C}^{n}_{k}$$ the binomial coefficient i.e. number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ .
+
+The script implements the generalized case where the number of elements in sets S and T are not equal. In that case the expected Jaccard similarity is equal to: 
+
 $$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right)} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{min\left(m_1, m_2\right)-i} {C}^{n-{min\left(m_1, m_2\right)}}_{max\left(m_1, m_2\right)-i}} {{C}^n_{m_1}{C}^n_{m_2}} \ \ \ \ \ \ \ [1]$$ 
 
 
-
-where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . For example if  $$m_1 \le m_2$$ the formula becomes:
-
-$$E\left(\\text{Jaccard  similarity}\right) = \sum_{i=0}^{m_1} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{m_1-i} {C}^{n-{m_1}}_{m_2-i}} {{C}^n_{m_1}{C}^n_{m_2}}$$
+where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . 
 
 For a proof of the above formula, see file Exercise 3.1.3 Solution.docx . 
 
@@ -112,4 +115,4 @@ Executing the script with various parameters and settings returned the following
 
 
 # References
-1. Leskovec, J., Rajaraman, A., and Ullman, J. D.: Mining of Massive Datasets, Cambridge University Press, 2014. Available http://mmds.org
+1. Leskovec, J., Rajaraman, A., and Ullman, J. D.: Mining of Massive Datasets, 3rd Edition, Cambridge University Press, 2014. Available http://mmds.org

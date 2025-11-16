@@ -1,6 +1,6 @@
 # About
 
-Attempts to solve (and verify) empirically Exercise 3.1.3 (page 86) found in [1] which states:
+Attempts to solve (and verify) empirically Exercise 3.1.3 page 86 found in [1] which states:
 
 _"Suppose we have a universal set U of n elements, and we choose two subsets S and T at random, each with m of the n elements. What is the expected value of the Jaccard similarity of S and T ?"_
 
@@ -112,4 +112,4 @@ Executing the script with various parameters and settings returned the following
 
 
 # References
-1. Leskovec, J., Rajaraman, A., and Ullman, J. D.: Mining of Massive Datasets, Cambridge University Press, 2014. Available http://mmds.org
+1. Leskovec, J., Rajaraman, A., and Ullman, J. D.: Mining of Massive Datasets, 3rd Edition, Cambridge University Press, 2014. Available http://mmds.org

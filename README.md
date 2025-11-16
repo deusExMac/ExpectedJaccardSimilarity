@@ -6,7 +6,7 @@ _"Suppose we have a universal set U of n elements, and we choose two subsets S a
 
 It does this by sampling from the universal set and calculating the Jaccard similarities a number of times and averaging the calculated similarities. This average is considered a solution to the exercise since it converges to the expected value. It also attempts to verify that the average converges to the exact expected value which is calculated by the formula:
 
-$$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{m} \left(i\over m-i\right) \frac{{C}^n_i {C}^{n-i}_{m-i} {C}^{n-m} {C}^n_{m}{C}^n_{m}} \ \ \ \ \ \ \ [1]$$ 
+$$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{m} \left(i\over 2m-i\right) \frac{{C}^n_i {C}^{n-i}_{m-i} {C}^{n-m}_{m-i}\over {C}^n_{m}{C}^n_{m}} \ \ \ \ \ \ \ [1]$$ 
 
 The script implements the case where the number in sets S and T are not equal. In that case the expected Jaccard similarity is equal to: 
 

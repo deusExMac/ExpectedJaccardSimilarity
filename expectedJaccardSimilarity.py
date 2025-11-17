@@ -67,7 +67,6 @@ import psutil
 # The reference jaccard similarity
 # NOTE: -1 means use as reference the exact theoretically calculated
 #       expected value of the Jaccard similarity   
-#DEFAULT_JACCARD_SIMILARITY_TARGET = 0.15551227322305261630785
 DEFAULT_JACCARD_SIMILARITY_TARGET = -1
 
 # How many random integers to generate

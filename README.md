@@ -17,7 +17,7 @@ $$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right
 
 where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . 
 
-For a proof of the above formulas, see file Exercise 3.1.3 Solution.docx . 
+For a proof of the above formulas, see file Exercise 3.1.3 Solution.pdf . 
 
 The script averages the Jaccard similarities of randomly sampled sets S and T from the universal set U a number of times and checks if it converges to the expected value. Convergence of the average to the expected value (output of the formula above) is done visually using an animated plot. Alternativelly, convergence using an user-defined epsilon threshold is also supported.
 

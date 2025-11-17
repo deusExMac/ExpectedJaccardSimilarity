@@ -12,21 +12,23 @@ where $$n$$ the number of distinct elements in the Universal set, $$m$$ the numb
 
 The script implements the general case where the number of elements in sets S and T are not necessarily equal. In that case the expected Jaccard similarity is equal to: 
 
-$$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right)} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{min\left(m_1, m_2\right)-i} {C}^{n-{min\left(m_1, m_2\right)}}_{max\left(m_1, m_2\right)-i}} {{C}^n_{m_1}{C}^n_{m_2}} \ \ \ \ \ \ \ [1]$$ 
+$$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right)} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{min\left(m_1, m_2\right)-i} {C}^{n-{min\left(m_1, m_2\right)}}_{max\left(m_1, m_2\right)-i}} {{C}^n_{m_1}{C}^n_{m_2}} \ \ \ \ \ \ \ [2]$$ 
 
 
-where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . 
+where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the binomial coefficient i.e. the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . 
 
 For a proof of the above formulas, see file Exercise 3.1.3 Solution.pdf . 
 
 The script averages the Jaccard similarities of randomly sampled sets S and T from the universal set U a number of times and checks if it converges to the expected value. Convergence of the average to the expected value (output of the formula above) is done visually using an animated plot. Alternativelly, convergence using an user-defined epsilon threshold is also supported.
 
-The script supports a number of settings to make testing easier. If the script is executed without any arguments the following default values will be in effect: |U|=100, |S|=20, |T|=20 n=100 (100 iterations i.e. 100 random sets of pairs S and T generated and their Jaccard similarities calculated - the average is reported as the expected Jaccard similarity). With these settings, the exact expected value of the Jaccard similarity is 0.11336428141466905 and the script checks if the average Jaccard similarity converges to that value. Arguments allows script execution with different settings such as different sizes of sets S, T, U, number of iterations etc (See Arguments section).  
+The script supports a number of settings to make testing easier. If the script is executed without any arguments the following default values will be in effect: |U|=100, |S|=20, |T|=20 n=100 (100 iterations i.e. 100 random sets of pairs S and T generated and their Jaccard similarities calculated - the average is reported as the expected Jaccard similarity). With these settings, the exact expected value of the Jaccard similarity is 0.11336428141466905 and the script checks if the average Jaccard similarity converges to that value. Arguments allows script execution with different settings such as different sizes of sets S, T, U, number of iterations etc (See Arguments section).  The script requires some third party Python modules installed to execute properly that can be found in file requirements.txt .
    
 This approach was based on an initial idea by Ioannis Refanidis (https://www.uom.gr/en/yrefanid) who did a first implementation for confirming empirically the theoretically proven value for specific values for U, S and T. This motivated me to do a Python implementation which gave me also the opportunity to experiment with the animation capabilities of matplotlib (which i always wanted anyway).
 
 _I apologize for the apparent complexity of the script. Since i had some time to spare, i tried to play around with different parameters to verify the results. This might look a little overengineered and you are probably right but as mentioned, there was some time to spare._
-_This code has parts that can and should be refactored._
+_This code has parts that can and should be improved and refactored._
+
+_I apologize for any error or bug that you may encounter. Any errors, bugs, mistakes, bad designs or omissions in this material are my responsibility alone._
 
 # Required modules
 See file requirements.txt  
@@ -45,7 +47,7 @@ Settings below are presented in the form of < command line argument > | < name i
 
 ``-s integer | ssetsize``: Size of set S. Defaults to 20.
 
-``-t integer | tsetsize``: Size of set T. Defaults to 40.
+``-t integer | tsetsize``: Size of set T. Defaults to 20.
 
 ``-n integer | nsamples``: Number of S and T set pairs to generate and calculate their Jaccard similarity. Equivalently, how many iterations to do calculating Jaccard similarities. This is one stopping condition of the script. Defaults to 100.
 
@@ -85,8 +87,8 @@ Below some results from test runs. In the table below, columns should be interep
 * |U| : size of universal set
 * |S| : size of S set
 * |T| : size of T set
-* n   : number of iterations (-1 means epsilon argument was set)
-* e   : epsilon - maximum allowed tolerance (-1 if number of iterations was used)
+* n   : number of iterations (displays the actual number of iterations if epsilon was set)
+* e   : epsilon - maximum allowed tolerance (-1 if number of iterations was used. NOTE: epsilon has precedence)
 * Average Jaccard similairity: the average calculated by the script
 * Expected Jaccard similarity: the expected Jaccard similarity calculated by [1]
 * delta: diffence between average and expected Jaccard similarity
@@ -101,6 +103,7 @@ Executing the script with various parameters and settings returned the following
 | 100 | 20 | 20 | 1000 | -1 | 0.11246304040908554 | 0.11336428141466905 | 0.00090 |
 | 100 | 20 | 20 | 2000 | -1 | 0.11437086914241613 | 0.11336428141466905 | 0.00100 |
 | 100 | 20 | 20 | 5000 | -1 | 0.11242762689638251 | 0.11336428141466905 | 0.00093 |
+| 100 | 20 | 20 | 1868 | 0.0008 | 0.11415980763823749 | 0.11336428141466905 | 0.00079 |
 | 100 | 30   | 30   | 100   | -1   | 0.18803981406511244   | 0.1785022900543863   | 0.00953   |
 | 100 | 30   | 30   | 500   | -1   | 0.18038402866706307   | 0.1785022900543863   | 0.00188   |
 | 100 | 30 |30 | 1000| -1 | 0.17940429007341643 | 0.1785022900543863 |0.000902 |

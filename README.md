@@ -73,7 +73,7 @@ Reference value is also displayed on plot. Defaults to -1 .
 
 ``-V | showvalues``: If set, the Jaccard similarity will appear on the animated chart for every 10th point.
 
-``-S | savesimilarities``: If set, the Jaccard similarities calculated will be stored in a csv file. Name of the outputfile can be specified by the -o option. If no file name is specified, it defaults to jaccardSimilarities< size of S set > x < size of T set> x < size of Universe set >. csv  . Appends to file, if output file already exists.
+``-S | savesimilarities``: If set, the Jaccard similarities calculated will be stored in a csv file. Name of the outputfile can be specified by the -o option. If no file name is specified, it defaults to jaccardSimilarities< size of S set > x < size of T set> x < size of Universal set >. csv  . Appends to file, if output file already exists.
 
 ``-o string | outputcsvfile``: Specifies the prefix of the file name to store jaccard similarities. File name is completed by concatenating to prefix the size of S set, size of T set and size of U set. Can also be a path; if directories in specified path do not exist, these will be created. Defaults to jaccardSimilarities .
 
@@ -86,7 +86,7 @@ Below some results from test runs. In the table below, columns should be interep
 * |S| : size of S set
 * |T| : size of T set
 * n   : number of iterations (-1 means epsilon argument was set)
-* e   : epsilon
+* e   : epsilon - maximum allowed tolerance (-1 if number of iterations was used)
 * Average Jaccard similairity: the average calculated by the script
 * Expected Jaccard similarity: the expected Jaccard similarity calculated by [1]
 * delta: diffence between average and expected Jaccard similarity

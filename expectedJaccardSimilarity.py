@@ -85,7 +85,7 @@ DEFAULT_N_SAMPLES = 100
 
 # Sizes if S abd T sets
 DEFAULT_S_SIZE = 20
-DEFAULT_T_SIZE = 40
+DEFAULT_T_SIZE = 20
 
 
 # If an epsilon is chosen, this specifies how many times

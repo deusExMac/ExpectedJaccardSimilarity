@@ -135,11 +135,9 @@ class JaccardSimilarityPlot(object):
 
 
        
-    # TODO: complete me
     def shouldTerminate(self):
         '''
-           Checks if script should terminate, based on the settings
-           rovided.
+           Checks if script should terminate, based on current settings.
         '''
         if self.configuration.get('epsilon', -1) > 0:
             

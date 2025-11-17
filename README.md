@@ -26,7 +26,9 @@ The script supports a number of settings to make testing easier. If the script i
 This approach was based on an initial idea by Ioannis Refanidis (https://www.uom.gr/en/yrefanid) who did a first implementation for confirming empirically the theoretically proven value for specific values for U, S and T. This motivated me to do a Python implementation which gave me also the opportunity to experiment with the animation capabilities of matplotlib (which i always wanted anyway).
 
 _I apologize for the apparent complexity of the script. Since i had some time to spare, i tried to play around with different parameters to verify the results. This might look a little overengineered and you are probably right but as mentioned, there was some time to spare._
-_This code has parts that can and should be refactored._
+_This code has parts that can and should be improved and refactored. 
+
+I apologize for any error or bug that you may encounter. Any errors, mistakes or omissions in this material are my responsibility alone._
 
 # Required modules
 See file requirements.txt  

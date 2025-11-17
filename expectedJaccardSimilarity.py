@@ -18,7 +18,7 @@
 
  References:
    1) Leskovec, J., Rajaraman, A., and Ullman, J. D.: Mining of Massive
-      Datasets, Cambridge University Press, 2014. Available http://mmds.org
+      Datasets, 3rd Edition, Cambridge University Press, 2014. Available http://mmds.org
 
    2) File "Exercise 3.1.3 Solution".pdf
 
@@ -356,7 +356,7 @@ class JaccardSimilarityPlot(object):
     #######################################################################################################################
 
     @staticmethod
-    def theoreticalExpectedValue(u=100, s=20, t=40):
+    def theoreticalExpectedValue(u=100, s=20, t=20):
         '''
            Calculates the theoretical expected value for the sizes of sets U, S and T based on the derived
            formula.

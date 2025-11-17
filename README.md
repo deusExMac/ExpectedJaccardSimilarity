@@ -45,7 +45,7 @@ Settings below are presented in the form of < command line argument > | < name i
 
 ``-s integer | ssetsize``: Size of set S. Defaults to 20.
 
-``-t integer | tsetsize``: Size of set T. Defaults to 40.
+``-t integer | tsetsize``: Size of set T. Defaults to 20.
 
 ``-n integer | nsamples``: Number of S and T set pairs to generate and calculate their Jaccard similarity. Equivalently, how many iterations to do calculating Jaccard similarities. This is one stopping condition of the script. Defaults to 100.
 
@@ -85,8 +85,8 @@ Below some results from test runs. In the table below, columns should be interep
 * |U| : size of universal set
 * |S| : size of S set
 * |T| : size of T set
-* n   : number of iterations (-1 means epsilon argument was set)
-* e   : epsilon - maximum allowed tolerance (-1 if number of iterations was used)
+* n   : number of iterations (-1 means epsilon argument was used)
+* e   : epsilon - maximum allowed tolerance (-1 if number of iterations was used. NOTE: epsilon has precedence)
 * Average Jaccard similairity: the average calculated by the script
 * Expected Jaccard similarity: the expected Jaccard similarity calculated by [1]
 * delta: diffence between average and expected Jaccard similarity
@@ -101,6 +101,7 @@ Executing the script with various parameters and settings returned the following
 | 100 | 20 | 20 | 1000 | -1 | 0.11246304040908554 | 0.11336428141466905 | 0.00090 |
 | 100 | 20 | 20 | 2000 | -1 | 0.11437086914241613 | 0.11336428141466905 | 0.00100 |
 | 100 | 20 | 20 | 5000 | -1 | 0.11242762689638251 | 0.11336428141466905 | 0.00093 |
+| 100 | 20 | 20 | 1868 | 0.0008 | 0.11415980763823749 | 0.11336428141466905 | 0.00079 |
 | 100 | 30   | 30   | 100   | -1   | 0.18803981406511244   | 0.1785022900543863   | 0.00953   |
 | 100 | 30   | 30   | 500   | -1   | 0.18038402866706307   | 0.1785022900543863   | 0.00188   |
 | 100 | 30 |30 | 1000| -1 | 0.17940429007341643 | 0.1785022900543863 |0.000902 |

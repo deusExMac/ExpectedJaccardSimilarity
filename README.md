@@ -21,7 +21,7 @@ For a proof of the above formulas, see file Exercise 3.1.3 Solution.docx .
 
 The script averages the Jaccard similarities of randomly sampled sets S and T from the universal set U a number of times and checks if it converges to the expected value. Convergence of the average to the expected value (output of the formula above) is done visually using an animated plot. Alternativelly, convergence using an user-defined epsilon threshold is also supported.
 
-The script supports a number of settings to make testing easier. If the script is executed without any arguments the following default values will be in effect: |U|=100, |S|=20, |T|=20 n=100 (100 iterations i.e. 100 random sets of pairs S and T generated and their Jaccard similarities calculated - the average is reported as the expected Jaccard similarity). With these settings, the exact expected value of the Jaccard similarity is 0.11336428141466905 and the script checks if the average Jaccard similarity converges to that value. Arguments allows script execution with different settings such as different sizes of sets S, T, U, number of iterations etc (See Configuration).  
+The script supports a number of settings to make testing easier. If the script is executed without any arguments the following default values will be in effect: |U|=100, |S|=20, |T|=20 n=100 (100 iterations i.e. 100 random sets of pairs S and T generated and their Jaccard similarities calculated - the average is reported as the expected Jaccard similarity). With these settings, the exact expected value of the Jaccard similarity is 0.11336428141466905 and the script checks if the average Jaccard similarity converges to that value. Arguments allows script execution with different settings such as different sizes of sets S, T, U, number of iterations etc (See Arguments section).  
    
 This approach was based on an initial idea by Ioannis Refanidis (https://www.uom.gr/en/yrefanid) who did a first implementation for confirming empirically the theoretically proven value for specific values for U, S and T. This motivated me to do a Python implementation which gave me also the opportunity to experiment with the animation capabilities of matplotlib (which i always wanted anyway).
 
@@ -32,7 +32,7 @@ _This code has parts that can and should be refactored_
 See file requirements.txt  
 
 
-# Configuration
+# Arguments
 The following configuration settings are supported. These can be given in the form of command line arguments and/or as settings in a config file. 
 Precedence is as follows: 
 * Default configuration values (consts inside scripts) are overridden by settings in the configuration file if it exists. Script searches for configuration files named 'ejv.conf', 'jaccard.conf', 'expectedjaccard.conf' (in that order) and loads the first one that it finds.

@@ -179,7 +179,18 @@ class JaccardSimilarityPlot(object):
         '''
 
         self.stopTime = time.time()
-        
+     
+        if self.configuration.get('saveplot', False): 
+           if self.configuration.get('plotfilename', '') == '':
+              plotFileName = 'Execution_'  +  str(self.configuration.get('ssetsize', DEFAULT_S_SIZE)) + 'x' + str(self.configuration.get('tsetsize', DEFAULT_T_SIZE)) + 'x' + str(self.configuration.get('universalsetsize', DEFAULT_UNIVERSAL_SET_SIZE))
+           else:
+              plotFileName = self.configuration.get('plotfilename', '')
+
+           if self.configuration.get('plotpdf', False):  
+              plt.savefig(plotFileName+'.pdf', bbox_inches='tight')
+           else:
+              plt.savefig(plotFileName+'.png', bbox_inches='tight') 
+           
         if self.configuration.get('savesimilarities', False):
            sFile = self.configuration.get('outputcsvfile', 'jaccardSimilarities') +  str(self.configuration.get('ssetsize', DEFAULT_S_SIZE)) + 'x' + str(self.configuration.get('tsetsize', DEFAULT_T_SIZE)) + 'x' + str(self.configuration.get('universalsetsize', DEFAULT_UNIVERSAL_SET_SIZE)) + '.csv' 
            print(f'[{getCurrentDateTime()}] Saving to file {sFile}...', end='')  
@@ -196,7 +207,8 @@ class JaccardSimilarityPlot(object):
              print(f'[{getCurrentDateTime()}] ByeBye')
              plt.close()
 
- 
+        
+        
         if self.configuration.get('uniformitycheck', False):
 
            # Do some visual checks only to see if data used follows a uniform distribution.
@@ -509,12 +521,16 @@ class JaccardSimilarityPlot(object):
         
         # Draw current average
         plt.axhline( y=self.currentAverageJaccard, color='#4169E1', linestyle='dashed', marker='o', markersize=6, label='Current average Jaccard similarity')
-        plt.text(x=min(self.x[-ws:]) + 20.5, y=self.currentAverageJaccard + 0.0012, s="Current average Jaccard similarity: " + "{:.7f}".format(self.currentAverageJaccard), color='#4169E1')
+        if self.currentAverageJaccard > self.configuration.get('targetexpectedjaccardsimilarity', DEFAULT_JACCARD_SIMILARITY_TARGET):
+           yoffset = 0.0055
+        else:
+           yoffset = -0.0055
+        plt.text(x=min(self.x[-ws:]) + 0.5, y=self.currentAverageJaccard + yoffset, s="Current average Jaccard similarity: " + "{:.16f}".format(self.currentAverageJaccard), color='#4169E1')
 
         # Draw target expected Jaccard similarity
         if self.configuration.get('targetexpectedjaccardsimilarity', DEFAULT_JACCARD_SIMILARITY_TARGET) > 0:
            plt.axhline( y=self.configuration.get('targetexpectedjaccardsimilarity', DEFAULT_JACCARD_SIMILARITY_TARGET), color='red', linestyle='solid', marker='o', markersize=6, label=f"Expected Jaccard similarity (target) {self.configuration.get('targetexpectedjaccardsimilarity', DEFAULT_JACCARD_SIMILARITY_TARGET)}")
-           plt.text(x=min(self.x[-ws:]) + 0.5, y=self.configuration.get('targetexpectedjaccardsimilarity', DEFAULT_JACCARD_SIMILARITY_TARGET) + 0.001, s=f'Expected Jaccard similarity = {self.configuration.get("targetexpectedjaccardsimilarity", DEFAULT_JACCARD_SIMILARITY_TARGET)}', color='red')
+           plt.text(x=min(self.x[-ws:]) + 0.5, y=self.configuration.get('targetexpectedjaccardsimilarity', DEFAULT_JACCARD_SIMILARITY_TARGET) + 0.001, s=f'Expected Jaccard similarity: {self.configuration.get("targetexpectedjaccardsimilarity", DEFAULT_JACCARD_SIMILARITY_TARGET)}', color='red')
 
         # Labels and legends...
         plt.xlabel("# of random pair (= # Jaccard similarities calculated)")
@@ -741,7 +757,11 @@ def main():
     p.add_argument('-S', '--savesimilarities', action='store_true')
     # Prefix of csv name to save similarities when savesimilarities has been set
     p.add_argument('-o', '--outputcsvfile', default='jaccardSimilarities')
-
+    # Saves plot
+    # TODO: add option for different file name 
+    p.add_argument('-P', '--saveplot', action='store_true')
+    # Store plot as pdf
+    p.add_argument('-F', '--plotpdf', action='store_true')
     
     # Dimensions of plot. In pixels. 
     p.add_argument('-w', '--plotwidth', type=int, default=1024)

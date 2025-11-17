@@ -85,7 +85,7 @@ Below some results from test runs. In the table below, columns should be interep
 * |U| : size of universal set
 * |S| : size of S set
 * |T| : size of T set
-* n   : number of iterations (-1 means epsilon argument was used)
+* n   : number of iterations (displays the actual number of iterations if epsilon was set)
 * e   : epsilon - maximum allowed tolerance (-1 if number of iterations was used. NOTE: epsilon has precedence)
 * Average Jaccard similairity: the average calculated by the script
 * Expected Jaccard similarity: the expected Jaccard similarity calculated by [1]

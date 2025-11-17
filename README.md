@@ -12,7 +12,7 @@ where $$n$$ the number of distinct elements in the Universal set, $$m$$ the numb
 
 The script implements the general case where the number of elements in sets S and T are not necessarily equal. In that case the expected Jaccard similarity is equal to: 
 
-$$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right)} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{min\left(m_1, m_2\right)-i} {C}^{n-{min\left(m_1, m_2\right)}}_{max\left(m_1, m_2\right)-i}} {{C}^n_{m_1}{C}^n_{m_2}} \ \ \ \ \ \ \ [1]$$ 
+$$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right)} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{min\left(m_1, m_2\right)-i} {C}^{n-{min\left(m_1, m_2\right)}}_{max\left(m_1, m_2\right)-i}} {{C}^n_{m_1}{C}^n_{m_2}} \ \ \ \ \ \ \ [2]$$ 
 
 
 where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the binomial coefficient i.e. the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . 

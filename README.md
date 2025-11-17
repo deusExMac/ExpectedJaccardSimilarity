@@ -79,6 +79,10 @@ Reference value is also displayed on plot. Defaults to -1 .
 
 ``-o string | outputcsvfile``: Specifies the prefix of the file name to store jaccard similarities. File name is completed by concatenating to prefix the size of S set, size of T set and size of U set. Can also be a path; if directories in specified path do not exist, these will be created. Defaults to jaccardSimilarities .
 
+``-P | saveplot``: If set, the plot after the last pair has been processed is saved to a file. The default format is png . Currently the plot is saved in a file with name having the form ``Execution_<S set size>x_<T set size>x<Universal set size>``
+
+``-F | plotpdf``: If set, the plot is saved as pdf with the default file name 
+
 ``-f [sset | tset] | fields-list``: Additional data to store in output csv file together with the Jaccard similarity. Currently only the randomly generated S and T set are supported with this flag. Can add multiple times e.g. -f sset -f tset to store also the S and T sets into the csv file. By default, these sets are not stored in the output file.
 
 # Test runs

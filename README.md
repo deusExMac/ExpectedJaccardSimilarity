@@ -82,6 +82,11 @@ Reference value is also displayed on plot. Defaults to -1 .
 # Test runs
 Below some results from test runs. In the table below, columns should be interepreted as follows: 
 
+* |U| : size of universal set
+* |S| : size of S set
+* |T| : size of T set
+* n   : number of iterations (-1 means epsilon argument was set)
+* e   : epsilon
 * Average Jaccard similairity: the average calculated by the script
 * Expected Jaccard similarity: the expected Jaccard similarity calculated by [1]
 * delta: diffence between average and expected Jaccard similarity

@@ -10,14 +10,14 @@ $$E\left(\\text{Jaccard similarity}\right) = \sum_{k=0}^{m} \left(k\over 2m-k\ri
 
 where $$n$$ the number of distinct elements in the Universal set, $$m$$ the number of  elements in sets S and T, and $${C}^{n}_{k}$$ the binomial coefficient i.e. number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ .
 
-The script implements the generalized case where the number of elements in sets S and T are not equal. In that case the expected Jaccard similarity is equal to: 
+The script implements the general case where the number of elements in sets S and T are not necessarily equal. In that case the expected Jaccard similarity is equal to: 
 
 $$E\left(\\text{Jaccard similarity}\right) = \sum_{i=0}^{min\left(m_1, m_2\right)} \left(i\over m_1+m_2-i\right) \frac{{C}^n_i {C}^{n-i}_{min\left(m_1, m_2\right)-i} {C}^{n-{min\left(m_1, m_2\right)}}_{max\left(m_1, m_2\right)-i}} {{C}^n_{m_1}{C}^n_{m_2}} \ \ \ \ \ \ \ [1]$$ 
 
 
 where $$n$$ the number of distinct elements in the Universal set, $$m_1$$ the number of distinct elements in ths S set,  $$m_2$$ the number of distinct elements in the T set and $${C}^{n}_{k}$$ the number of ways to choose a subset of $$k$$ items from a larger set of $$n$$ items (number of combinations) which is equal to $$\frac{n!}{\left(n-k\right)!k!}$$ . 
 
-For a proof of the above formula, see file Exercise 3.1.3 Solution.docx . 
+For a proof of the above formulas, see file Exercise 3.1.3 Solution.docx . 
 
 The script averages the Jaccard similarities of randomly sampled sets S and T from the universal set U a number of times and checks if it converges to the expected value. Convergence of the average to the expected value (output of the formula above) is done visually using an animated plot. Alternativelly, convergence using an user-defined epsilon threshold is also supported.
 

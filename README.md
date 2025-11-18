@@ -4,7 +4,7 @@ Attempts to solve (and verify) empirically Exercise 3.1.3 page 86 found in [1] w
 
 _"Suppose we have a universal set U of n elements, and we choose two subsets S and T at random, each with m of the n elements. What is the expected value of the Jaccard similarity of S and T ?"_
 
-It does this by sampling from the universal set and calculating the Jaccard similarities a number of times and averaging the calculated similarities. This average is considered a solution to the exercise since it converges to the expected value. It also attempts to verify that the average converges to the exact solution of exercise 3.1.3. The exact solution of exercise 3.1.3, i.e. the expected value of the Jaccard similarity, is given by the formula:
+It does this by sampling from the universal set and calculating the Jaccard similarities a number of times and averaging the calculated similarities. This average is considered a solution to the exercise since it converges to the expected value. It also attempts to verify that the average converges to the exact solution of exercise 3.1.3. The solution of exercise 3.1.3, i.e. the expected value of the Jaccard similarity, is given by the formula:
 
 $$E\left(\\text{Jaccard similarity}\right) = \sum_{k=0}^{m} \left(k\over 2m-k\right) \frac{{C}^n_k {C}^{n-k}_{m-k} {C}^{n-m}_{m-k}} {{C}^n_{m}{C}^n_{m}} \ \ \ \ \ \ \ [1]$$ 
 

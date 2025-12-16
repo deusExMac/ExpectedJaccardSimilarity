@@ -88,6 +88,8 @@ Reference value is also displayed on plot. Defaults to -1 .
 ``-f [sset | tset] | fields-list``: Additional data to store in output csv file together with the Jaccard similarity. Currently only the randomly generated S and T set are supported with this flag. Can add multiple times e.g. -f sset -f tset to store also the S and T sets into the csv file. By default, these sets are not stored in the output file.
 
 # Test runs
+When executing the script, an animated plot [like this](https://github.com/deusExMac/ExpectedJaccardSimilarity/blob/main/Execution_20x20x100.png) will show up.
+
 Below some results from test runs. In the table below, columns should be interepreted as follows: 
 
 * |U| : size of universal set
